@@ -47,18 +47,15 @@ if response.status_code == 200:
         if element:
             clipboard_text = element.get('data-clipboard-text')
             print(clipboard_text)
-            webhook_url = f'https://sctapi.ftqq.com/{send_key}.send'
-
-            data = {
-                'title': 'vpn地址',
-                'short': f'{clipboard_text}',
-                'desp': f'{clipboard_text}',
-            }
+            webhook_url = f'https://sctapi.ftqq.com/{send_key}.send?title=vpn地址&desp={clipboard_text}'
 
             try:
-                response = requests.post(webhook_url, data=json.dumps(data))
+                response = requests.post(webhook_url)
+
                 if response.status_code == 200:
                     print('发送通知成功')
+                else:
+                    print('通知:',response.json());
 
             except Exception as e:
                 print('发送通知失败')
