@@ -3,6 +3,7 @@ name: Run spider_vpn.py
 on:
   schedule:
     - cron: '0 8 * * *'
+  workflow_dispatch:  # 允许手动触发
 
 jobs:
   run-scraping:
