@@ -25,6 +25,7 @@ jobs:
       - name: Run script
         env:
           SEND_KEY: ${{ secrets.SEND_KEY }}
+          SEND_KEY_BB: ${{ secrets.SEND_KEY_BB }}
           EMAIL: ${{ secrets.EMAIL }}
           PASSWD: ${{ secrets.PASSWD }}
         run: |
