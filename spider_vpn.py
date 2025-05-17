@@ -10,6 +10,7 @@ proxies = {
 
 # 使用环境变量读取敏感信息
 send_key = os.getenv('SEND_KEY')
+send_key_bb = os.getenv('SEND_KEY_BB')
 email = os.getenv('EMAIL')
 passwd = os.getenv('PASSWD')
 
@@ -48,9 +49,11 @@ if response.status_code == 200:
             clipboard_text = element.get('data-clipboard-text')
             print(clipboard_text)
             webhook_url = f'https://sctapi.ftqq.com/{send_key}.send?title=vpn地址&desp={clipboard_text}'
+            webhook_url_bb = f'https://sctapi.ftqq.com/{send_key_bb}.send?title=vpn地址&desp={clipboard_text}'
 
             try:
                 response = requests.post(webhook_url)
+                response = requests.post(webhook_url_bb)
 
                 if response.status_code == 200:
                     print('发送通知成功')
