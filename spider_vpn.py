@@ -55,7 +55,7 @@ if response.status_code == 200:
                 response = requests.post(webhook_url)
                 response_bb = requests.post(webhook_url_bb)
 
-                if response.status_code == 200 && response_bb.status_code==200:
+                if response.status_code == 200 and response_bb.status_code==200:
                     print('发送通知成功')
                 else:
                     print('通知:',response.json());
