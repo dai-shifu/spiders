@@ -28,5 +28,8 @@ jobs:
           SEND_KEY_BB: ${{ secrets.SEND_KEY_BB }}
           EMAIL: ${{ secrets.EMAIL }}
           PASSWD: ${{ secrets.PASSWD }}
+          LOGIN_URL: ${{ vars.LOGIN_URL }}
+          IOS_TUTORIAL_URL: ${{ vars.IOS_TUTORIAL_URL }}
+          WINDOWS_TUTORIAL_URL: ${{ vars.WINDOWS_TUTORIAL_URL }}
         run: |
           python spider_vpn.py
